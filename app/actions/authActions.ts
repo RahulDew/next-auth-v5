@@ -5,6 +5,7 @@ import { AuthError } from "next-auth";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+import { SIGNIN_ROUTE } from "@/routes";
 
 export async function handleCredentialsSignin({
   email,
@@ -81,5 +82,5 @@ export async function handleGoogleSignin() {
 }
 
 export async function handleSignOut() {
-  await signOut();
+  await signOut({ redirectTo: SIGNIN_ROUTE });
 }

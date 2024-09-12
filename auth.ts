@@ -6,6 +6,7 @@ import Google from "next-auth/providers/google";
 import { connectDB } from "./lib/mongodb";
 import User from "./models/User";
 import bcrypt from "bcryptjs";
+import { SIGNIN_ROUTE } from "./routes";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -43,7 +44,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: credentials?.email,
         }).select("+password");
         console.log("User", user);
-        
 
         if (!user) throw new Error("Invalid credentials: Wrong Email");
 
@@ -124,6 +124,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 
   pages: {
-    signIn: "/auth/signin",
+    signIn: SIGNIN_ROUTE,
   },
 });

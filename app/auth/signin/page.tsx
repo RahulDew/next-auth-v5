@@ -61,7 +61,7 @@ export default function SignIn() {
         <CardContent>
           {globalError && <ErrorMessage error={globalError} />}
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
               <FormField
                 control={form.control}
                 name="email"
@@ -109,18 +109,20 @@ export default function SignIn() {
           <span className="text-sm text-gray-500 text-center block my-2">
             or
           </span>
-          <form className="w-full" action={handleGoogleSignin}>
-            <Button variant="outline" className="w-full" type="submit">
-              <GlobeIcon className="h-4 w-4 mr-2" />
-              Sign in with Google
-            </Button>
-          </form>
-          <form className="w-full" action={handleGithubSignin}>
-            <Button variant="outline" className="w-full" type="submit">
-              <GitHubLogoIcon className="h-4 w-4 mr-2" />
-              Sign in with GitHub
-            </Button>
-          </form>
+          <div className="space-y-2">
+            <form className="w-full" action={handleGoogleSignin}>
+              <Button variant="outline" className="w-full" type="submit">
+                <GlobeIcon className="h-4 w-4 mr-2" />
+                Sign in with Google
+              </Button>
+            </form>
+            <form className="w-full" action={handleGithubSignin}>
+              <Button variant="outline" className="w-full" type="submit">
+                <GitHubLogoIcon className="h-4 w-4 mr-2" />
+                Sign in with GitHub
+              </Button>
+            </form>
+          </div>
         </CardContent>
       </Card>
     </div>
