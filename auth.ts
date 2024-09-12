@@ -43,6 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: credentials?.email,
         }).select("+password");
         console.log("User", user);
+        
 
         if (!user) throw new Error("Invalid credentials: Wrong Email");
 
